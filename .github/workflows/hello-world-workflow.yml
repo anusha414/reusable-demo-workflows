@@ -7,9 +7,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+        with:
+          repository: anusha414/reusable-demo-workflows
 
       - name: Echo Hello World
         run: echo "Hello World (Workflow)!"
 
       - name: Call Hello World Action
-        uses: .github/actions/hello-world-action@master
+        uses: ../actions/hello-world-action@master
