@@ -17,4 +17,4 @@ jobs:
           echo "Repository Name: ${{ github.repository }}"
                  
       - name: Call Hello World Action
-        uses: ../actions/hello-world-action
+        uses: ./.github/actions/hello-world-action
