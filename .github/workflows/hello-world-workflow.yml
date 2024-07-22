@@ -12,4 +12,4 @@ jobs:
         run: echo "Hello World (Workflow)!"
 
       - name: Call Hello World Action
-        uses: ../actions/hello-world-action@master
+        uses: .github/actions/hello-world-action@master
