@@ -15,9 +15,6 @@ jobs:
         run: |
           echo "Repository Owner: ${{ github.repository_owner }}"
           echo "Repository Name: ${{ github.repository }}"
-          
-      - name: Echo Hello World
-        run: echo "Hello World (Workflow)!"
-        
+                 
       - name: Call Hello World Action
         uses: ./.github/actions/hello-world-action
