@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-        with:
-          repository: BHGitOps/new-code-reusable-workflows
-          ref: main
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Echo Hello World
         run: echo "Hello World (Workflow)!"
