@@ -1,0 +1,8 @@
+name: 'hello-world-action'
+description: 'A composite action that echoes "Hello World!"'
+runs:
+  using: 'composite'
+  steps:
+    - name: Echo Hello World!
+      run: echo "Hello World (Action)!"
+      shell: bash
