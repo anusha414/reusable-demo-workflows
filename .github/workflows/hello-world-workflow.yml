@@ -1,0 +1,19 @@
+name: Hello World Workflow
+on: workflow_call
+
+jobs:
+  hello-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          repository: BHGitOps/new-code-reusable-workflows
+          ref: main
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Echo Hello World
+        run: echo "Hello World (Workflow)!"
+
+      #- name: Call Hello World Action
+      #  uses: ../actions/hello-world-action@main
