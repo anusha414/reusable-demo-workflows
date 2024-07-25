@@ -6,3 +6,4 @@ runs:
   steps:
     - name: test with dotnet
       run: dotnet test --no-build --verbosity normal
+      shell: bash
