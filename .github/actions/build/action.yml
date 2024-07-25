@@ -6,3 +6,4 @@ runs:
   steps:
     - name: Build with dotnet
       run: dotnet build --configuration Release --no-restore
+      shell: bash
