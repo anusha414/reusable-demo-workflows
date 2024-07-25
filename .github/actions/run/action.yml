@@ -11,3 +11,4 @@ runs:
   steps:
     - name: run with dotnet
       run: dotnet run --project ${{inputs.FILENAME}}  # eg:- filename.csproj
+      shell: bash
