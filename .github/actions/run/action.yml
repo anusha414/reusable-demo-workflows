@@ -1,8 +1,13 @@
 name: Run action
 description: run action for dotnet application
 
+inputs:
+   FILENAME:
+      required: true
+      type: string
+
 runs:
   using: 'composite'       
   steps:
     - name: run with dotnet
-      run: dotnet run --project Program.csproj
+      run: dotnet run --project ${{inputs.FILENAME}}  # eg:- filename.csproj
