@@ -1,0 +1,8 @@
+name: Test action
+description: Test action for dotnet application
+
+runs:
+  using: 'composite'       
+  steps:
+    - name: test with dotnet
+      run: dotnet test --no-build --verbosity normal
