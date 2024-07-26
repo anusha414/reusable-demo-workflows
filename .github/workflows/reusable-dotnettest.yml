@@ -25,5 +25,5 @@ jobs:
     - name: upload artifacts
       uses: actions/upload-artifact@v4
       with:
-          name: artifact
+          name: testartifact
           path: bin/Release/netcoreapp3.1/
