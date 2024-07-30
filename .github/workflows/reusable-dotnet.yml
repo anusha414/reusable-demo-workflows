@@ -27,7 +27,8 @@ jobs:
       run: dotnet restore
 
     - name: Build,Test and package
-      uses: anusha414/reusable-demo-workflows/.github/actions/package@master
+     # uses: anusha414/reusable-demo-workflows/.github/actions/package@master
+      uses: ./.github/actions/package@master
 
     - name: Run Hello World
       uses: anusha414/reusable-demo-workflows/.github/actions/run@master
