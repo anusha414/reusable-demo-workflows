@@ -16,13 +16,13 @@ runs:
       shell: bash
       
     - name: Build with dotnet
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ${{inputs.path}} --configuration Release --no-restore
       shell: bash
       
     - name: test with dotnet
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ${{inputs.path}} --no-build --verbosity normal
       shell: bash
 
     - name: package
-      run: dotnet pack --no-build -c Release
+      run: dotnet pack ${{inputs.path}} --no-build -c Release
       shell: bash
