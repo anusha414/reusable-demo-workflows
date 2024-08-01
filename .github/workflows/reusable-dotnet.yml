@@ -2,6 +2,11 @@ name: .NET with reusable actions
 
 on: 
   workflow_call:
+    inputs:
+      path1:  # id of input
+        description: 'path to project file'
+        required: true
+        default: './'
 
 jobs:
   build:
@@ -21,6 +26,8 @@ jobs:
 
     - name: Build,Test and package
       uses: anusha414/reusable-demo-workflows/.github/actions/package@master
+      with:
+         path: ${{inputs.path1}}
 
     - name: upload artifacts
       uses: actions/upload-artifact@v4
