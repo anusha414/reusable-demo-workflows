@@ -1,12 +1,18 @@
 name: build,test and package action
 description: Test action for dotnet application
 
+inputs:
+  path:  # id of input
+    description: 'path to project file'
+    required: true
+    default: './'
+
 runs:
   using: 'composite'       
   steps:
   
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ${{inputs.path}}
       shell: bash
       
     - name: Build with dotnet
