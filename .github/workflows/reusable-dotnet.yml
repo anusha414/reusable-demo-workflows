@@ -19,9 +19,6 @@ jobs:
       with:
         dotnet-version: '3.1.x' # Adjust based on your .NET version
 
-    - name: Restore dependencies
-      run: dotnet restore
-
     - name: Build,Test and package
       uses: anusha414/reusable-demo-workflows/.github/actions/package@master
 
