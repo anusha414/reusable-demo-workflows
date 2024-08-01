@@ -4,9 +4,9 @@ on:
   workflow_call:
     inputs:
       path1:  # id of input
+        type: string
         description: 'path to project file'
         required: true
-        default: './'
 
 jobs:
   build:
