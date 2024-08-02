@@ -1,0 +1,11 @@
+name: restore action
+description: restore action for dotnet application
+
+runs:
+  using: 'composite'       
+  steps:
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      shell: bash
+      
