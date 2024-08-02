@@ -1,0 +1,9 @@
+name: build action
+description: build action for dotnet application
+
+runs:
+  using: 'composite'       
+  steps:     
+    - name: Build with dotnet
+      run: dotnet build --configuration Release --no-restore
+      shell: bash
