@@ -2,11 +2,6 @@ name: .NET with reusable actions
 
 on: 
   workflow_call:
-    inputs:
-      path1:  # id of input
-        type: string
-        description: 'path to project file'
-        required: true
 
 jobs:
   build:
@@ -24,10 +19,11 @@ jobs:
       with:
         dotnet-version: '3.1.x' # Adjust based on your .NET version
 
-    - name: Build,Test and package
-      uses: anusha414/reusable-demo-workflows/.github/actions/package@master
-      with:
-         path: ${{inputs.path1}}
+    - name: restore
+      uses: anusha414/reusable-demo-workflows/.github/actions/restore@master
+
+    - name: build
+      uses: anusha414/reusable-demo-workflows/.github/actions/build@master
 
     - name: upload artifacts
       uses: actions/upload-artifact@v4
