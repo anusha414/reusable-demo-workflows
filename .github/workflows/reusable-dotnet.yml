@@ -23,7 +23,7 @@ jobs:
       uses: anusha414/reusable-demo-workflows/.github/actions/restore@master
 
     - name: build
-      uses: anusha414/reusable-demo-workflows/.github/actions/build@master
+      run: dotnet build --configuration Release --output ./output
 
     - name: upload artifacts
       uses: actions/upload-artifact@v4
