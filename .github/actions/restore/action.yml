@@ -6,6 +6,6 @@ runs:
   steps:
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/azFunction
       shell: bash
       
