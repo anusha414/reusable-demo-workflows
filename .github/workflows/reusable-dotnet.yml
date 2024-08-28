@@ -32,7 +32,7 @@ jobs:
       uses: anusha414/reusable-demo-workflows/.github/actions/restore@master
 
     - name: build
-      run: dotnet build src/azFunction --configuration ${{ inputs.configuration }} --output ./${{ output }}
+      run: dotnet build src/azFunction --configuration ${{ inputs.configuration }} --output ./${{ inputs.output }}
 
     - name: upload artifacts
       uses: actions/upload-artifact@v4
