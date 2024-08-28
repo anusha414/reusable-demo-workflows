@@ -2,6 +2,11 @@ name: .NET with reusable actions
 
 on: 
   workflow_call:
+    inputs:
+      configuration: 
+        default: Release
+        required: false
+        type: string
 
 jobs:
   build:
@@ -23,7 +28,7 @@ jobs:
       uses: anusha414/reusable-demo-workflows/.github/actions/restore@master
 
     - name: build
-      run: dotnet build --configuration Release --output ./output
+      run: dotnet build --configuration ${{ configuration }} --output ./output
 
     - name: upload artifacts
       uses: actions/upload-artifact@v4
