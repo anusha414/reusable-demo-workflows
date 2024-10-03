@@ -15,8 +15,11 @@ jobs:
     runs-on: ubuntu-latest  # Use the input OS variable
     strategy:
       matrix:
-        node-version: ${{ fromJson(inputs.node-version) }}
-        os-version: ${{ fromJson(inputs.os) }} # Use the input Node versions
+        include:
+        - node-version: ${{ fromJson(inputs.node-version)[0] }}
+          os-version: ${{ fromJson(inputs.os)[0] }} # Use the input Node versions
+        - node-version: ${{ fromJson(inputs.node-version)[1] }}
+          os-version: ${{ fromJson(inputs.os)[1] }} # Use the input Node versions
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -29,7 +32,6 @@ jobs:
     - name: display os
       run: echo "${{ matrix.os-version }}"
 
-
   display:
     runs-on: ubuntu-latest  # Use the input OS variable
     needs: build
@@ -39,6 +41,3 @@ jobs:
     steps:
     - name: print os
       run: echo "${{ matrix.os-version }}"
-
-    - name: print node
-      run: echo "${{ matrix.node-version }}"
