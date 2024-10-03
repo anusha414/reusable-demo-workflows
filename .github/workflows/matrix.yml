@@ -15,8 +15,9 @@ jobs:
     runs-on: ubuntu-latest  # Use the input OS variable
     strategy:
       matrix:
-        node-version: ${{ fromJson(inputs.node-versions) }} # Use the input Node versions
-        os-version: ${{ fromJson(inputs.os) }}
+        include:
+          node-version: ${{ fromJson(inputs.node-versions)[0] }} # Use the input Node versions
+          os-version: ${{ fromJson(inputs.os)[0] }}
 
     steps:
     - name: Checkout code
