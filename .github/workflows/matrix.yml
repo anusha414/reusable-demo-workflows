@@ -2,13 +2,17 @@ name: Node.js CI
 
 on:
   workflow_call:  # This enables the workflow to be reusable
-    inputs:
-      node-version:
-        required: true
-        type: string
-      os:
-        required: true
-        type: string
+      # inputs:
+      # node-version:
+      #   required: true
+      #   type: string
+      # os:
+      #   required: true
+      #   type: string
+      inputs:
+        combinations:
+          required: true
+          type: string
 
 jobs:
   build:
