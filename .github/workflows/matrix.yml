@@ -36,6 +36,9 @@ jobs:
   display:
     runs-on: ubuntu-latest  # Use the input OS variable
     needs: build
+    strategy:
+      matrix:
+        include: ${{ fromJson(inputs.combinations) }}
     steps:
     - name: print os
       run: echo "${{ matrix.os-version }}"
