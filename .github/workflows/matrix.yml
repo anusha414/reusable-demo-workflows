@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         include:
-          node-version: ${{ fromJson(inputs.node-versions)[0] }} # Use the input Node versions
+        - node-version: ${{ fromJson(inputs.node-versions)[0] }} # Use the input Node versions
           os-version: ${{ fromJson(inputs.os)[0] }}
 
     steps:
