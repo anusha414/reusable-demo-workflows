@@ -3,7 +3,7 @@ name: Node.js CI
 on:
   workflow_call:  # This enables the workflow to be reusable
     inputs:
-      node-versions:
+      node-version:
         required: true
         type: string
       os:
@@ -15,10 +15,7 @@ jobs:
     runs-on: ubuntu-latest  # Use the input OS variable
     strategy:
       matrix:
-        index: [0,1]
-        include:
-        - node-version: ${{ fromJson(inputs.node-versions)[matrix.index] }} # Use the input Node versions
-          os-version: ${{ fromJson(inputs.os)[matrix.index] }}
+        node-version: ${{ fromJson(inputs.node-version) }} # Use the input Node versions
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -28,5 +25,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+  display:
+    runs-on: ubuntu-latest  # Use the input OS variable
+    needs: build
+    strategy:
+      matrix:
+          os-version: ${{ fromJson(inputs.os) }}
+    steps:
     - name: print os
       run: echo "${{ matrix.os-version }}"
+
+    - name: print node
+      run: echo "${{ needs.build.outputs.node-version }}"
