@@ -18,6 +18,8 @@ jobs:
         include:
         - node-version: ${{ fromJson(inputs.node-versions)[0] }} # Use the input Node versions
           os-version: ${{ fromJson(inputs.os)[0] }}
+        - node-version: ${{ fromJson(inputs.node-versions)[1] }} # Use the input Node versions
+          os-version: ${{ fromJson(inputs.os)[1] }}
 
     steps:
     - name: Checkout code
