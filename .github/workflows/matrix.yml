@@ -12,10 +12,11 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ fromJson(inputs.os) }}  # Use the input OS variable
+    runs-on: ubuntu-latest  # Use the input OS variable
     strategy:
       matrix:
-        node-version: ${{ fromJson(inputs.node-versions) }}  # Use the input Node versions
+        node-version: ${{ fromJson(inputs.node-versions) }} # Use the input Node versions
+        os-version: ${{ fromJson(inputs.os-version) }}
 
     steps:
     - name: Checkout code
@@ -25,3 +26,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: print os
+      run: echo "${{ matrix.os-version }}"
