@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+  workflow_call:  # This enables the workflow to be reusable
+    inputs:
+      node-versions:
+        required: true
+        type: string
+      os:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ${{ inputs.os }}  # Use the input OS variable
+    strategy:
+      matrix:
+        node-version: ${{ inputs.node-versions }}  # Use the input Node versions
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
