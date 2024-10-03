@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest  # Use the input OS variable
     strategy:
       matrix:
-        node-version: ${{ fromJson(inputs.node-version) }} # Use the input Node versions
+        node-version: ${{ fromJson(inputs.node-version) }}
+        os-version: ${{ fromJson(inputs.os) }} # Use the input Node versions
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -24,11 +25,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-  
-    - name: Generate output
-      id: gen_output
-      run: |
-          echo "node-version=${{ matrix.node-version }}" >> "$GITHUB_OUTPUT"
+
+    - name: display os
+      run: echo "${{ matrix.os-version }}"
+
 
   display:
     runs-on: ubuntu-latest  # Use the input OS variable
@@ -41,4 +41,4 @@ jobs:
       run: echo "${{ matrix.os-version }}"
 
     - name: print node
-      run: echo "${{ needs.build.outputs.node-version }}"
+      run: echo "${{ matrix.node-version }}"
