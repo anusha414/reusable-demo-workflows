@@ -12,10 +12,10 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ inputs.os }}  # Use the input OS variable
+    runs-on: ${{ fromJson(inputs.os) }}  # Use the input OS variable
     strategy:
       matrix:
-        node-version: ${{ inputs.node-versions }}  # Use the input Node versions
+        node-version: ${{ fromJson(inputs.node-versions) }}  # Use the input Node versions
 
     steps:
     - name: Checkout code
